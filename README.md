@@ -73,9 +73,9 @@ Array.prototype.RCA = function (toSum = []) {
 };
 ```
 
-```js
-import { fromEvent, scan, pipe, merge, map } from 'rxjs';
+## Unit tests
 
+```js
 function expect(test, value = 0, toBe = 0) {
   if (JSON.stringify(value) !== JSON.stringify(toBe)) {
     console.log('fail: ', test, '\nreceived: ', value, 'expected: ', toBe);
@@ -182,6 +182,78 @@ expect(
   [0, 1, 0, 0].RCA([0, 1, 0, 0]),
   [0, 0, 1, 0],
 );
+```
+
+## Example
+
+```html
+<fieldset id="a">
+  <legend>group A</legend>
+
+  <label>
+    <input type="checkbox" name="0">
+  </label>
+  
+  <label>
+    <input type="checkbox" name="1">
+  </label>
+  
+  <label>
+    <input type="checkbox" name="2">
+  </label>
+  
+  <label>
+    <input type="checkbox" name="3">
+  </label> 
+</fieldset>
+
+<fieldset id="b">
+  <legend>group B</legend>
+
+  <label>
+    <input type="checkbox" name="0">
+  </label>
+  
+  <label>
+    <input type="checkbox" name="1">
+  </label>
+  
+  <label>
+    <input type="checkbox" name="2">
+  </label>
+  
+  <label>
+    <input type="checkbox" name="3">
+  </label> 
+  
+  <label>
+    <input type="checkbox" name="4">
+  </label> 
+</fieldset>
+
+<fieldset id="r">
+  <legend>result</legend>
+
+  <label>
+    <input type="checkbox" name="0">
+  </label>
+  
+  <label>
+    <input type="checkbox" name="1">
+  </label>
+  
+  <label>
+    <input type="checkbox" name="2">
+  </label>
+  
+  <label>
+    <input type="checkbox" name="3">
+  </label> 
+</fieldset>
+```
+
+```js
+import { fromEvent, scan, pipe, merge, map } from 'rxjs';
 
 const transformIntoInput = pipe(
   scan(
@@ -244,5 +316,4 @@ fourBitsCalculator.subscribe((result) => {
   outputs[2].checked = !!result[2];
   outputs[3].checked = !!result[3];
 });
-
 ```
