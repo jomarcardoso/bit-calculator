@@ -1,8 +1,8 @@
 # Bit Calculator 01 + 01 = 10
 
-```js
-import { fromEvent, scan, pipe, merge, map } from 'https://esm.sh/rxjs';
+## The logical operators
 
+```js
 Array.prototype.AND = function () {
   return Number(Boolean(this[0] && this[1]));
 };
@@ -26,7 +26,11 @@ Array.prototype.NOR = function () {
 Array.prototype.XNOR = function () {
   return Number(!this.XOR());
 };
+```
 
+## The adders
+
+```js
 Array.prototype.HALF_ADDER = function () {
   return [this.XOR(), this.AND()];
 };
@@ -37,7 +41,11 @@ Array.prototype.ADDER = function () {
 
   return [c, [b, d].OR()];
 };
+```
 
+## Ripple-carry adder
+
+```js
 Array.prototype.INVERTER = function () {
   const copyList = [...this];
   const invert = copyList.pop();
@@ -63,6 +71,10 @@ Array.prototype.RCA = function (toSum = []) {
     return copyAcc;
   }, initial);
 };
+```
+
+```js
+import { fromEvent, scan, pipe, merge, map } from 'rxjs';
 
 function expect(test, value = 0, toBe = 0) {
   if (JSON.stringify(value) !== JSON.stringify(toBe)) {
