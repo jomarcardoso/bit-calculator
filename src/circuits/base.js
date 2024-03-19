@@ -1,3 +1,5 @@
+window.NOT = (a = 0) => Number(!a);
+
 Array.prototype.AND = function () {
   return Number(Boolean(this[0] && this[1]));
 };
