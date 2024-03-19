@@ -1,5 +1,7 @@
 # Bit Calculator 01 + 01 = 10
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BbnDmeNojFA?si=BMPJG-7CsedLxJ6_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## The logical operators
 
 ```js
