@@ -18,13 +18,13 @@ window.T_FLIP_FLOP = () => {
 };
 
 window.FLIP_FLOP = () => {
-  const flipFlop = T_FLIP_FLOP();
+  const tFlipFlop = T_FLIP_FLOP();
 
-  function run(info = 0, modify = 0) {
-    const a = [info, modify].AND();
-    const b = [NOT(info), modify].AND();
+  function run(info = 0, toSet = 0) {
+    const a = [info, toSet].AND();
+    const b = [NOT(info), toSet].AND();
 
-    return flipFlop(a, b);
+    return tFlipFlop(a, b);
   }
 
   return run;

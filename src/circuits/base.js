@@ -1,11 +1,11 @@
 window.NOT = (a = 0) => Number(!a);
 
 Array.prototype.AND = function () {
-  return Number(Boolean(this[0] && this[1]));
+  return Number(this.every((a) => !!a));
 };
 
 Array.prototype.OR = function () {
-  return Number(Boolean(this[0] || this[1]));
+  return Number(this.some((a) => !!a));
 };
 
 Array.prototype.NAND = function () {
