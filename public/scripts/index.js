@@ -27,6 +27,8 @@ const operators = [
 
 const equals = [1, 1, 0, 0]; // =
 
+const clear = [1, 1, 0, 1]; // C
+
 const screenAddresses = [
   [1, 1, 1, 1], // 6
   [0, 1, 1, 1], // 5
@@ -126,6 +128,10 @@ function operate() {
 
 document.addEventListener('calckey', (event) => {
   const binary = decimalToBinary(event.target.dataset.value);
+
+  if (binary.is(clear)) {
+    ram.reset();
+  }
 
   if (binary.is(equals)) {
     operate();

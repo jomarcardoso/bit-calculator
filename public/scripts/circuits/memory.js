@@ -70,9 +70,11 @@ function IMC(inputs = []) {
 export function RAM(addressShape = [0, 0, 0, 0], defaultValue = [0, 0, 0, 0]) {
   let memories = IMC(addressShape).map(() => MEMORY());
 
-  memories.forEach((memory) => {
-    memory(defaultValue, 1);
-  });
+  function reset() {
+    memories.forEach((memory) => {
+      memory(defaultValue, 1);
+    });
+  }
 
   function write(address = [], data = []) {
     return IMC(address).map((output, index) => {
@@ -90,10 +92,13 @@ export function RAM(addressShape = [0, 0, 0, 0], defaultValue = [0, 0, 0, 0]) {
     return memories.map((a) => a());
   }
 
+  reset();
+
   return {
     write,
     read,
     show,
+    reset,
   };
 }
 
