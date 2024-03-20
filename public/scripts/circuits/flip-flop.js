@@ -1,4 +1,4 @@
-window.T_FLIP_FLOP = () => {
+function T_FLIP_FLOP() {
   let carry = 0;
 
   function run(toSet = 0, toReset = 0, finish = false) {
@@ -15,9 +15,9 @@ window.T_FLIP_FLOP = () => {
   }
 
   return run;
-};
+}
 
-window.FLIP_FLOP = () => {
+export function FLIP_FLOP() {
   const tFlipFlop = T_FLIP_FLOP();
 
   function run(info = 0, toSet = 0) {
@@ -28,4 +28,4 @@ window.FLIP_FLOP = () => {
   }
 
   return run;
-};
+}

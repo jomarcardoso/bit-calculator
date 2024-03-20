@@ -1,3 +1,5 @@
+import { FLIP_FLOP } from './flip-flop.js';
+
 /**
  * the last bit define if set or not in memory
  *
@@ -15,11 +17,11 @@
  * // [1, 1, 1, 1]
  * ```
  */
-window.MEMORY = () => {
+function MEMORY() {
   let flipFlops = [];
   let allocate = true;
 
-  function run(bits = [], toSet) {
+  function run(bits = [], toSet = 0) {
     if (allocate) {
       flipFlops = bits.map(() => FLIP_FLOP());
       allocate = false;
@@ -31,7 +33,7 @@ window.MEMORY = () => {
   }
 
   return run;
-};
+}
 
 /**
  * generated with GPT chat
@@ -47,7 +49,7 @@ window.MEMORY = () => {
  * @param {*} inputs
  * ```
  */
-window.IMC = (inputs = []) => {
+function IMC(inputs = []) {
   const clauses = [];
 
   for (let i = 0; i < Math.pow(2, inputs.length); i++) {
@@ -59,22 +61,20 @@ window.IMC = (inputs = []) => {
   }
 
   return clauses;
-};
+}
 
 /**
- *
- *
+ * RAM().write(address, data)
+ * RAM().write([0, 1], [0, 1, 1, 0])
  */
-window.RAM = () => {
-  let memories = [];
-  let allocate = true;
+export function RAM(addressShape = [0, 0, 0, 0], defaultValue = [0, 0, 0, 0]) {
+  let memories = IMC(addressShape).map(() => MEMORY());
+
+  memories.forEach((memory) => {
+    memory(defaultValue, 1);
+  });
 
   function write(address = [], data = []) {
-    if (allocate) {
-      allocate = false;
-      memories = IMC(address).map(() => MEMORY());
-    }
-
     return IMC(address).map((output, index) => {
       return memories[index](data, output);
     });
@@ -82,11 +82,6 @@ window.RAM = () => {
 
   function read(address = []) {
     const index = IMC(address).indexOf(1);
-
-    if (allocate) {
-      allocate = false;
-      memories = IMC(address).map(() => MEMORY());
-    }
 
     return memories[index]();
   }
@@ -100,7 +95,7 @@ window.RAM = () => {
     read,
     show,
   };
-};
+}
 
 // integrated memory controller
 // inprove this to make it versatile

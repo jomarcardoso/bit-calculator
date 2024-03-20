@@ -1,19 +1,14 @@
 Array.prototype.INVERTER = function () {
-  const copyList = [...this];
-  const invert = copyList.pop();
-
-  return copyList.map((bit) => [bit, invert].XOR());
+  return this.map((bit) => [bit, 1].XOR());
 };
 
-Array.prototype.RCA = function (toSum = []) {
+Array.prototype.RCA = function (toSum = [], subtract = false) {
   const initial = this.map(() => 0);
-  let carry = toSum.length > initial.length ? toSum[toSum.length - 1] : 0;
-  const invertedToSum =
-    toSum.length > initial.length ? toSum.INVERTER() : [...toSum];
+  let carry = subtract ? toSum[toSum.length - 1] : 0;
+  const invertedToSum = subtract ? toSum.INVERTER() : [...toSum];
+  const self = [...this];
 
-  console.log(toSum, initial, toSum.length > initial.lenght);
-
-  return this.reduce((acc, number, index) => {
+  const sum = self.reduceRight((acc, number, index) => {
     const copyAcc = [...acc];
     const [sum, newCarry] = [number, invertedToSum[index], carry].ADDER();
 
@@ -22,4 +17,10 @@ Array.prototype.RCA = function (toSum = []) {
 
     return copyAcc;
   }, initial);
+
+  if (carry) {
+    return [carry, ...sum];
+  }
+
+  return sum;
 };

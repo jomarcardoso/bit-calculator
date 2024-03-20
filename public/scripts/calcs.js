@@ -1,5 +1,5 @@
 // generated with GPT Chat
-export function binaryToDecimal(binary) {
+export function binaryToDecimal(binary = []) {
   let decimal = 0;
   for (let i = 0; i < binary.length; i++) {
     const digit = parseInt(binary[binary.length - 1 - i]);
@@ -23,3 +23,5 @@ export function decimalToBinary(decimal) {
         .split('')
         .map((a) => Number(a));
 }
+
+function binaryToNumber(binary = []) {}

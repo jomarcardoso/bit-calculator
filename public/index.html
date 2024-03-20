@@ -11,30 +11,47 @@
   <div class="container">
     <div class="calculator">
       <input type="text" id="result" value="0" disabled>
-      <input type="button" value="C" onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="" value="C"
+        onclick="this.dispatchEvent(KEY_EVENT)">
 
-      <input type="button" value="7" onclick="this.dispatchEvent(KEY_EVENT)">
-      <input type="button" value="8" onclick="this.dispatchEvent(KEY_EVENT)">
-      <input type="button" value="9" onclick="this.dispatchEvent(KEY_EVENT)">
-      <input type="button" value="/" onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="7" value="7"
+        onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="8" value="8"
+        onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="9" value="9"
+        onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="" value="/"
+        onclick="this.dispatchEvent(KEY_EVENT)">
 
-      <input type="button" value="4" onclick="this.dispatchEvent(KEY_EVENT)">
-      <input type="button" value="5" onclick="this.dispatchEvent(KEY_EVENT)">
-      <input type="button" value="6" onclick="this.dispatchEvent(KEY_EVENT)">
-      <input type="button" value="X" onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="4" value="4"
+        onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="5" value="5"
+        onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="6" value="6"
+        onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="" value="X"
+        onclick="this.dispatchEvent(KEY_EVENT)">
 
-      <input type="button" value="1" onclick="this.dispatchEvent(KEY_EVENT)">
-      <input type="button" value="2" onclick="this.dispatchEvent(KEY_EVENT)">
-      <input type="button" value="3" onclick="this.dispatchEvent(KEY_EVENT)">
-      <input type="button" value="-" onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="1" value="1"
+        onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="2" value="2"
+        onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="3" value="3"
+        onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="" value="-"
+        onclick="this.dispatchEvent(KEY_EVENT)">
 
-      <input type="button" value="0" onclick="this.dispatchEvent(KEY_EVENT)">
-      <input type="button" value="." onclick="this.dispatchEvent(KEY_EVENT)">
-      <input type="button" value="=" onclick="this.dispatchEvent(KEY_EVENT)">
-      <input type="button" value="+" onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="0" value="0"
+        onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="" value="."
+        onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="12" value="="
+        onclick="this.dispatchEvent(KEY_EVENT)">
+      <input type="button" data-value="10" value="+"
+        onclick="this.dispatchEvent(KEY_EVENT)">
     </div>
 
-    <div class="log" id="log">
+    <div class="log" id="">
     </div>
   </div>
 
