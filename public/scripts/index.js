@@ -7,6 +7,8 @@ import { RAM } from './circuits/memory.js';
 
 const ram = RAM();
 
+log.innerHTML = ram.show().join('<br>');
+
 const digits = [
   [0, 0, 0, 0], // 0
   [0, 0, 0, 1], // 1
@@ -146,6 +148,7 @@ document.addEventListener('calckey', (event) => {
   }
 
   writeOnScreen();
+  log.innerHTML = ram.show().join('<br>');
 
   // log.insertAdjacentHTML('afterbegin', `<p>${binary}</p>`);
 });

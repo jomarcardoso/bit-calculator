@@ -65,8 +65,6 @@ body {
   flex: 1;
   background-color: white;
   font-family: 'Courier New', Courier, monospace;
-  letter-spacing: 2px;
-  padding: 20px;
   overflow-y: scroll;
   max-height: 284px;
   border-radius: 5px;
